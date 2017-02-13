@@ -52,8 +52,6 @@ public class BookController {
 		}
 		se.setAttribute("end", tot-(page-1)*bpp);
 		se.setAttribute("gbList", gbList);
-		//model.addAttribute("end", tot-(page-1)*bpp);
-		//model.addAttribute("gbList", gbList);
 		return "board/home";
 	}
 	
@@ -121,10 +119,10 @@ public class BookController {
 		return "redirect:/home";
 	}
 	
-	@RequestMapping(value = "/updateForm", method = RequestMethod.POST)
+	@RequestMapping(value = "/updateForm", method = RequestMethod.GET)
 	public String update(int bnum, Model model) {
 		model.addAttribute("gb",gbr.readOne(bnum));
-		return "updateForm";
+		return "board/updateForm";
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
@@ -133,7 +131,7 @@ public class BookController {
 		return "redirect:/home";
 	}
 
-	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(int bnum) {
 		se.setAttribute("result",gbr.delete(bnum));
 		return "redirect:/home";

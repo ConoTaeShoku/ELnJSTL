@@ -11,19 +11,54 @@ table, th {
 	vertical-align: center;
 }
 </style>
+<script>
+function updateCheck() {
+	var path =document.getElementById("path").value;
+	var num = document.getElementById("num").value;
+	var loginid = document.getElementById("loginid").value;
+	var id = document.getElementById("name").value;
+	var rpw = document.getElementById("password").value;
+	var pw = prompt(id+"님의 비밀번호를 입력하세요");
+	if (pw == rpw) {
+		location.href = path+'/updateForm?bnum='+num;
+	} else {
+		alert('비밀번호가 틀렸습니다.');
+	}
+	if (loginid == 'admin') {
+		location.href = path+'/updateForm?bnum='+num;
+	}
+}
+function deleteCheck() {
+	var path =document.getElementById("path").value;
+	var num = document.getElementById("num").value;
+	var loginid = document.getElementById("loginid").value;
+	var id = document.getElementById("name").value;
+	var rpw = document.getElementById("password").value;
+	var pw = prompt(id+"님의 비밀번호를 입력하세요");
+	if (pw == rpw) {
+		location.href =  path+'/delete?bnum='+num;
+	} else {
+		alert('비밀번호가 틀렸습니다.');
+	}
+	if (loginid == 'admin') {
+		location.href =  path+'/delete?bnum='+num;
+	}
+}
+
+</script>
+
 </head>
 <body>
 
 <h2>[방명록 보기]</h2>
 
-<form id="read" method="post">
+<form>
+<input type="hidden" name="path" id="path" value="${pageContext.request.contextPath}" />
+<input type="hidden" name="num" id="num" value="${gb.num}" />
+<input type="hidden" name="loginid" id="loginid" value="${loginM.id}" />
 
 <div align="center">
 	<table  width="80%" border="1">
-	<tr>
-		<th bgcolor="#FAEBD7">글 번호</th>
-		<td><input type="text" name="num" id="num" style="width:98%;" value="${gb.num}" readonly /></td>
-	</tr>
 	<tr>
 		<th bgcolor="#FAEBD7">작성자 이름</th>
 		<td><input type="text" name="name" id="name" style="width:98%;" value="${gb.name}" readonly /></td>
@@ -41,17 +76,15 @@ table, th {
 </table>
 </div><br>
 
-<c:if test="${loginM.id == gb.name }">
-	<div align="center">	
-		<input type=submit formaction="${pageContext.request.contextPath}/updateForm?bnum=${gb.num}" value='수정' />
-		<input type=submit formaction="${pageContext.request.contextPath}/delete?bnum=${gb.num}" value='삭제' /></td>
-	</div>
-</c:if>
-	
-</form><br><br>
-<div align="right">
+<div align="center">	
+	<input type="button" value="수정" onclick="updateCheck()" />
+	<input type="button" value="삭제" onclick="deleteCheck()" /> <br>
 	<a href="${pageContext.request.contextPath}/home" >목록으로!</a>
 </div>
+</form>
+
+<div align="left">	
+</div>	
 
 </body>
 </html>

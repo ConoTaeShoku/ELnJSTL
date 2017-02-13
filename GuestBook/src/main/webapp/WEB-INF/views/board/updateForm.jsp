@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,16 +24,19 @@ table {
 <div align="center">
 	<table  width="80%" border="1">
 	<tr>
-		<th bgcolor="#FAEBD7">글 번호</th>
-		<td><input type="text" name="num" id="num" style="width:98%;" value= "${gb.num}" readonly/></td>
-	</tr>
-	<tr>
 		<th bgcolor="#FAEBD7">작성자 이름</th>
-		<td><input type="text" name="name" id="name" style="width:98%;" value= "${gb.name}"/></td>
+		<td><input type="text" name="name" id="name" style="width:98%;" value= "${gb.name}" readonly></td>		
 	</tr>
 	<tr>
 		<th bgcolor="#FAEBD7">비밀번호</th>
-		<td><input type="password" name="password" id="password" style="width:98%;" value="${gb.password}" /></td>
+		<td>
+		<c:if test="${empty loginM}">
+			<input type="password" name="password" id="password" style="width:98%;" value="${gb.password}">
+		</c:if>
+		<c:if test="${not empty loginM}">
+			<input type="password" name="password" id="password" style="width:98%;" value="${gb.password}" readonly>
+		</c:if>
+		</td>
 	</tr>
 	<tr>
 		<th bgcolor="#FAEBD7">글 내용</th>
