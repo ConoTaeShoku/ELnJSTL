@@ -14,34 +14,34 @@ table, th {
 <script>
 function updateCheck() {
 	var path =document.getElementById("path").value;
-	var num = document.getElementById("num").value;
+	var bnum = document.getElementById("bnum").value;
 	var loginid = document.getElementById("loginid").value;
 	var id = document.getElementById("name").value;
 	var rpw = document.getElementById("password").value;
 	var pw = prompt(id+"님의 비밀번호를 입력하세요");
 	if (pw == rpw) {
-		location.href = path+'/updateForm?bnum='+num;
+		location.href = path+'/updateForm?bnum='+bnum;
 	} else {
 		alert('비밀번호가 틀렸습니다.');
 	}
 	if (loginid == 'admin') {
-		location.href = path+'/updateForm?bnum='+num;
+		location.href = path+'/updateForm?bnum='+bnum;
 	}
 }
 function deleteCheck() {
 	var path =document.getElementById("path").value;
-	var num = document.getElementById("num").value;
+	var bnum = document.getElementById("bnum").value;
 	var loginid = document.getElementById("loginid").value;
 	var id = document.getElementById("name").value;
 	var rpw = document.getElementById("password").value;
 	var pw = prompt(id+"님의 비밀번호를 입력하세요");
 	if (pw == rpw) {
-		location.href =  path+'/delete?bnum='+num;
+		location.href =  path+'/delete?bnum='+bnum;
 	} else {
 		alert('비밀번호가 틀렸습니다.');
 	}
 	if (loginid == 'admin') {
-		location.href =  path+'/delete?bnum='+num;
+		location.href =  path+'/delete?bnum='+bnum;
 	}
 }
 
@@ -54,7 +54,7 @@ function deleteCheck() {
 
 <form>
 <input type="hidden" name="path" id="path" value="${pageContext.request.contextPath}" />
-<input type="hidden" name="num" id="num" value="${gb.num}" />
+<input type="hidden" name="bnum" id="bnum" value="${gb.num}" />
 <input type="hidden" name="loginid" id="loginid" value="${loginM.id}" />
 
 <div align="center">
