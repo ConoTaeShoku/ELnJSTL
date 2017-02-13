@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="h.h.gb.dao.GuestBookDAO">
+
+	<select id="readOne" resultType="GuestBook" parameterType="int">
+		SELECT * FROM GUEST_BOOK WHERE NUM = #{num} 
+	</select>
+
+	<select id="readList" resultType="GuestBook">
+		SELECT * FROM GUEST_BOOK ORDER BY inputdate DESC
+	</select>
+	
+	<select id="total" resultType="int">
+		SELECT COUNT(*) FROM GUEST_BOOK
+	</select>
+
+	<insert id="insert" parameterType="GuestBook">
+		INSERT INTO GUEST_BOOK (num, name, password, content)
+		VALUES (GUEST_BOOK_SEQ.nextval, #{name}, #{password}, #{content})
+	</insert>
+
+	<update id="update" parameterType="GuestBook">
+		UPDATE GUEST_BOOK
+		SET NAME = #{name}, PASSWORD = #{password}, CONTENT =#{content}
+		WHERE NUM = #{num}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		DELETE FROM GUEST_BOOK WHERE NUM = #{num}
+	</delete>
+	
+</mapper>
