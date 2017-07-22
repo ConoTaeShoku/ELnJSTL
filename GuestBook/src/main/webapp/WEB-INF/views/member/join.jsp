@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>회원가입</title>
+	<title>회원가입</title>
 </head>
 <body>
 <h2>[회원 가입]</h2>
@@ -29,11 +29,8 @@
 		</tr>
 	</table>
 </form>
-
-
 <div>
 	<a href="${pageContext.request.contextPath}/">메인화면으로</a>
 </div>
-
 </body>
 </html>

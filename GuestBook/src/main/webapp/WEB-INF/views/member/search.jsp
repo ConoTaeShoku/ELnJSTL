@@ -1,15 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>회원검색</title>
+	<title>회원검색</title>
 </head>
 <body>
 <h2>[회원 검색]</h2>
 <h3>개인 검색</h3>
-<form action="selectOne" method="post">
+<form action="membersearch" method="post">
 	<table border="1">
 		<tr>
 			<th>아이디</th>
@@ -23,11 +22,11 @@
 		</tr>
 	</table>
 </form>
-
 <h3>전체 검색</h3>
-<form action="selectList" method="get">
+<form action="memberList" method="get">
 	<input type="submit" value="전체출력">
 </form>
-
+<h3>마지막 검색 결과</h3>
+${searchResult }
 </body>
 </html>

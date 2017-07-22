@@ -78,4 +78,17 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	
+	@RequestMapping(value = "/membersearch", method = RequestMethod.GET)
+	public String search() {
+		return "member/search";
+	}
+	
+	@RequestMapping(value = "/membersearch", method = RequestMethod.POST)
+	public String search(String id) {
+		Member m = mr.select(id);
+		session.setAttribute("searchResult", m);
+		return "redirect:/membersearch";
+	}
+	
 }
