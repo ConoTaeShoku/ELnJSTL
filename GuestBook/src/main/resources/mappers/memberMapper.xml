@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="h.h.gb.dao.MemberDAO">
+<mapper namespace="global.sesoc.guestbook.dao.MemberDAO">
 
 	<select id="memberList" resultType="Member">
 		SELECT * FROM WEB_MEMBER

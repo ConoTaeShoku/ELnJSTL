@@ -1,4 +1,4 @@
-package h.h.gb.vo;
+package global.sesoc.guestbook.vo;
 
 public class GuestBook {
 

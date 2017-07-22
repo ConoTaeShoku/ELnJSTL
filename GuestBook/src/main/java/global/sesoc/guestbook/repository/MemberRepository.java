@@ -1,4 +1,4 @@
-package h.h.gb.repository;
+package global.sesoc.guestbook.repository;
 
 import java.util.ArrayList;
 
@@ -7,8 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import h.h.gb.dao.MemberDAO;
-import h.h.gb.vo.Member;
+import global.sesoc.guestbook.dao.MemberDAO;
+import global.sesoc.guestbook.vo.Member;
 
 @Repository
 public class MemberRepository {

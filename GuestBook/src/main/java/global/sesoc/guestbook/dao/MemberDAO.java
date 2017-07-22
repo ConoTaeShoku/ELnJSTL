@@ -1,10 +1,10 @@
-package h.h.gb.dao;
+package global.sesoc.guestbook.dao;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import h.h.gb.vo.Member;
+import global.sesoc.guestbook.vo.Member;
 
 public interface MemberDAO {
 	

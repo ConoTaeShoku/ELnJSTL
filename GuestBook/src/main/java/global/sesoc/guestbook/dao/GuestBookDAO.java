@@ -1,8 +1,8 @@
-package h.h.gb.dao;
+package global.sesoc.guestbook.dao;
 
 import java.util.List;
 
-import h.h.gb.vo.GuestBook;
+import global.sesoc.guestbook.vo.GuestBook;
 
 public interface GuestBookDAO {
 

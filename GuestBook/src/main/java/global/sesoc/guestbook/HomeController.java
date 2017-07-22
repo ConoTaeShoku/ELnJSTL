@@ -1,4 +1,4 @@
-package h.h.gb;
+package global.sesoc.guestbook;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
 	@Autowired
-	HttpSession se;
+	HttpSession session;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-		se.setAttribute("bpp", 10);
-		se.setAttribute("page",1);
+		session.setAttribute("bpp", 10);
+		session.setAttribute("page",1);
 		return "index";
 	}
 

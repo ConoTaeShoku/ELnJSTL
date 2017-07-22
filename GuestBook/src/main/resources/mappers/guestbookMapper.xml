@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="h.h.gb.dao.GuestBookDAO">
+<mapper namespace="global.sesoc.guestbook.dao.GuestBookDAO">
 
 	<select id="readOne" resultType="GuestBook" parameterType="int">
 		SELECT * FROM GUEST_BOOK WHERE NUM = #{num} 

@@ -1,4 +1,4 @@
-package h.h.gb;
+package global.sesoc.guestbook;
 
 import java.util.ArrayList;
 
@@ -10,9 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import h.h.gb.repository.GuestBookRepository;
-import h.h.gb.vo.GuestBook;
-import h.h.gb.vo.Member;
+import global.sesoc.guestbook.repository.GuestBookRepository;
+import global.sesoc.guestbook.vo.GuestBook;
+import global.sesoc.guestbook.vo.Member;
 
 @Controller
 public class BookController {
@@ -21,7 +21,7 @@ public class BookController {
 	GuestBookRepository gbr;
 	
 	@Autowired
-	HttpSession se;
+	HttpSession session;
 	
 	private int tot;
 	private int last;
@@ -31,8 +31,8 @@ public class BookController {
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home(Model model) {
-		bpp = (int) se.getAttribute("bpp");
-		page = (int) se.getAttribute("page");
+		bpp = (int) session.getAttribute("bpp");
+		page = (int) session.getAttribute("page");
 		ArrayList<GuestBook> gList = new ArrayList<>();
 		gList = gbr.readList();
 		tot = gbr.total();
@@ -50,8 +50,8 @@ public class BookController {
 		for (int i=start-1; i<end ;i++){
 			gbList.add(gList.get(i));
 		}
-		se.setAttribute("end", tot-(page-1)*bpp);
-		se.setAttribute("gbList", gbList);
+		session.setAttribute("end", tot-(page-1)*bpp);
+		session.setAttribute("gbList", gbList);
 		return "board/home";
 	}
 	
@@ -61,7 +61,7 @@ public class BookController {
 			model.addAttribute("presult", 0);			
 		} else {
 			page = page - 1;
-			se.setAttribute("page", page);
+			session.setAttribute("page", page);
 		}
 		return "redirect:/home";
 	}
@@ -69,7 +69,7 @@ public class BookController {
 	@RequestMapping(value = "/fpage", method = RequestMethod.GET)
 	public String fpage() {
 		page = 1;
-		se.setAttribute("page", page);
+		session.setAttribute("page", page);
 		return "redirect:/home";
 	}
 	
@@ -79,7 +79,7 @@ public class BookController {
 			model.addAttribute("presult", 0);			
 		} else {
 			page = page + 1;
-			se.setAttribute("page", page);
+			session.setAttribute("page", page);
 		}
 		return "redirect:/home";
 	}
@@ -87,14 +87,14 @@ public class BookController {
 	@RequestMapping(value = "/lpage", method = RequestMethod.GET)
 	public String lpage() {
 		page = last;
-		se.setAttribute("page", page);
+		session.setAttribute("page", page);
 		return "redirect:/home";
 	}
 	
 	@RequestMapping(value = "/setpage", method = RequestMethod.GET)
 	public String setpage(int pg) {
 		page = pg;
-		se.setAttribute("page", page);
+		session.setAttribute("page", page);
 		return "redirect:/home";
 	}
 	
@@ -106,7 +106,7 @@ public class BookController {
 
 	@RequestMapping(value = "/writeForm", method = RequestMethod.GET)
 	public String writeForm() {
-		Member m = (Member) se.getAttribute("loginM");
+		Member m = (Member) session.getAttribute("loginM");
 		if (m == null) {
 			return "board/writeFormG";
 		}		
@@ -115,7 +115,7 @@ public class BookController {
 	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insert(GuestBook gb) {
-		se.setAttribute("result",gbr.insert(gb));
+		session.setAttribute("result",gbr.insert(gb));
 		return "redirect:/home";
 	}
 	
@@ -127,13 +127,13 @@ public class BookController {
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(GuestBook gb) {
-		se.setAttribute("result",gbr.update(gb));
+		session.setAttribute("result",gbr.update(gb));
 		return "redirect:/home";
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String delete(int bnum) {
-		se.setAttribute("result",gbr.delete(bnum));
+		session.setAttribute("result",gbr.delete(bnum));
 		return "redirect:/home";
 	}
 

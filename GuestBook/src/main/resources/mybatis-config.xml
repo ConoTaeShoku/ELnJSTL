@@ -5,8 +5,8 @@
 <configuration>
 
 	<typeAliases>
-		<typeAlias type="h.h.gb.vo.GuestBook" alias="GuestBook" />
-		<typeAlias type="h.h.gb.vo.Member" alias="Member" />
+		<typeAlias type="global.sesoc.guestbook.vo.GuestBook" alias="GuestBook" />
+		<typeAlias type="global.sesoc.guestbook.vo.Member" alias="Member" />
 	</typeAliases>
 	
 	<mappers>
