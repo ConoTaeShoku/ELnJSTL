@@ -21,6 +21,6 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="global.sesoc.guestbook.controller" />
+	<context:component-scan base-package="global.sesoc.guestbook" />
 	
 </beans:beans>
