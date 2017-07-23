@@ -1,4 +1,4 @@
-package global.sesoc.guestbook;
+package global.sesoc.guestbook.controller;
 
 import java.util.ArrayList;
 

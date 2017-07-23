@@ -1,4 +1,4 @@
-package global.sesoc.guestbook;
+package global.sesoc.guestbook.controller;
 
 import javax.servlet.http.HttpSession;
 
