@@ -7,9 +7,7 @@
 <title>writeForm</title>
 </head>
 <body>
-
 <h2>[익명 방명록]</h2>
-
 <form action="insert" method="post">
 <table  width="40%" border="1">
 	<tr>
@@ -32,10 +30,8 @@
 	<input type="reset" value="초기화" />
 </div>
 </form>
-
 <div align="right">
 	<a href="${pageContext.request.contextPath}/home">home으로 돌아가기</a>
 </div>
-
 </body>
 </html>

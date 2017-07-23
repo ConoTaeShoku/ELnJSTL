@@ -15,9 +15,7 @@ table {
 </style>
 </head>
 <body>
-
 <h2>[방명록 수정]</h2>
-
 <form action="update" method="post">
 	<input type="hidden" name="num" id="num" value="${gb.num}" /> 
 	<div align="center">
